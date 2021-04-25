@@ -22,18 +22,26 @@ public class LibraryView {
 		//login
 		
 		boolean bool = true;
+		BookList booklist = new BookList();
 		
 		while(bool) {
 			System.out.println("메뉴를 선택하세요.");
-			System.out.print("1.도서대출 \t 2.도서 검색 ====> ");
+			System.out.print("1.도서 추가\t 2.도서대출 \t 3.도서 검색 \t 4.도서 삭제 ====> ");
 			int num2 = sc.nextInt();
 		switch(num2) {
 			case 1:
+				System.out.println("도서 추가 페이지 입니다.");
+				booklist.addBook();
+				booklist.printBookList();
+			case 2:
 				System.out.println("도서 대출 페이지 입니다.");
 				break;
-			case 2:
+			case 3:
 				System.out.println("도서 검색 페이지 입니다.");
 				break;
+			case 4:
+				System.out.println("도서 삭제 페이지 입니다.");
+				booklist.deleteBook();
 			default :
 				System.out.println("종료되었습니다.");
 				bool = false;

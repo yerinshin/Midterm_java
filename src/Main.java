@@ -4,19 +4,28 @@ public class Main {
 //		menu.process();
 		
 		BookList b = new BookList();
-		for(int i=0; i<3;i++) {
-			b.addBook();
-		}
-		for(int i=0; i<3;i++) {
-			b.rentBook();
-		}
-		b.printRentedBook();
+		UserUtil u = new UserUtil();
 		
-		b.returnBook();
+//		u.SignUp();
+//		u.SignUp();
+		u.SignUp();
+//		u.writeFile();
 		
-		System.out.println();
-		b.printBookList(); 
+//		u.SignIn();
 		
-		b.deleteBook();
+//		for(int i=0; i<3;i++) {
+//			b.addBook();
+//		}
+//		for(int i=0; i<3;i++) {
+//			b.rentBook();
+//		}
+//		b.printRentedBook();
+//		
+//		b.returnBook();
+//		
+//		System.out.println();
+//		b.printBookList(); 
+//		
+//		b.deleteBook();
 	}
 }

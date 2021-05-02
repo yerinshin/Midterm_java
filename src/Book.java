@@ -1,47 +1,47 @@
 
 public class Book {
 
-	private int id;
-	private String name;
+	private int bId;
+	private String bName;
 	private String author;
 	private boolean rental;
 	
-	public boolean equals(int id) {
-		if(this.id == id)
+	public boolean equals(int bId) {
+		if(this.bId == bId)
 			return true;
 		else
 			return false;
 	}
 	
 	public Book() {
-		id = 0;
-		name = " ";
+		bId = 0;
+		bName = " ";
 		author =" ";
 		rental = false;
 	}
 	
-	public Book(int id, String name, String author) {
-		this.id = id;
-		this.name = name;
+	public Book(int bId, String bName, String author) {
+		this.bId = bId;
+		this.bName = bName;
 		this.author = author;
 		rental = false;
 		
 	}
 
 	public int getId() {
-		return id;
+		return bId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int bId) {
+		this.bId = bId;
 	}
 
 	public String getName() {
-		return name;
+		return bName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String bName) {
+		this.bName = bName;
 	}
 
 	public String getAuthor() {

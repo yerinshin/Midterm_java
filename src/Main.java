@@ -3,19 +3,21 @@ public class Main {
 //		LibraryView menu = new LibraryView();
 //		menu.process();
 		
-		BookList b = new BookList();
+		BookUtil b = new BookUtil();
 		UserUtil u = new UserUtil();
 		
 //		u.SignUp();
 //		u.SignUp();
-		u.SignUp();
+//		u.SignUp();
 //		u.writeFile();
 		
-//		u.SignIn();
+		u.SignIn();
 		
-//		for(int i=0; i<3;i++) {
-//			b.addBook();
-//		}
+		for(int i=0; i<3;i++) {
+			b.addBook();
+		}
+		
+		b.writeFile();
 //		for(int i=0; i<3;i++) {
 //			b.rentBook();
 //		}

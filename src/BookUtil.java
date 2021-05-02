@@ -1,33 +1,83 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class BookList {
+public class BookUtil {
 
 	Scanner sc = new Scanner(System.in);
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	ArrayList<Book> bookList = new ArrayList<Book>();
 	ArrayList<Book> rentedBook = new ArrayList<Book>();
 	
 	
 	public void addBook(){
-		System.out.println("id입력");
-		int id = sc.nextInt();
-		sc.nextLine();
+		System.out.println("======== 책 등록 =========");
 		
-		System.out.println("책 이름 입력 : ");
-		String name = sc.nextLine();
+		FileReader fr;
+	
 		
-		System.out.println("저자 입력 : ");
-		String author = sc.nextLine();
+		try {
+			Book b = new Book();
+			fr = new FileReader("C:\\Users\\dpfls\\Desktop\\kopo_java\\Midterm_java\\src\\iodata\\booklist.txt");
+			br = new BufferedReader(fr);
+			
+			
+			String line = "";
+			
+			int id = 0;
+			
+			while(true) {
+				boolean registered = false;
+				System.out.print("책 id입력 : ");
+				id = sc.nextInt();
+				sc.nextLine();
+			
+			while((line = br.readLine()) != null) {
+				String strId = Integer.toString(id); 
+				String[] temp = line.split(",");
+				
+				if(strId.equals(temp[0])) {
+					System.out.println("이미 등록된 아이디입니다. 사용되지 않은 id를 입력해 주세요.");
+					registered = true;
+//					continue;
+				}
+			
+			}
+			
+			
+			if(!registered) {
+				break;
+			}
+			
+			}
+			
+			
+			System.out.print("책 이름 입력 : ");
+			String name = sc.nextLine();
+			
+			System.out.print("저자 입력 : ");
+			String author = sc.nextLine();
+			
+			System.out.println("장르 입력 : ");
+			String genre = sc.nextLine();
+			
+			
+			b.setId(id);
+			b.setName(name);
+			b.setAuthor(author);
+			b.setGenre(genre);
+			bookList.add(b);
+			
+			
+			System.out.println("id : " + id + "도서명 : " +name + "지은이 : " + author+ "장르 : " + genre + "인 도서가 등록 되었습니다.");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		
-		Book b = new Book();
-		
-		b.setId(id);
-		b.setName(name);
-		b.setAuthor(author);
-		
-		bookList.add(b);
-		
-		System.out.println("id : " + id + "도서명 : " +name + "지은이 : " + author+ "인 도서가 등록 되었습니다.");
 	}
 	
 	public void deleteBook() {
@@ -101,14 +151,30 @@ public class BookList {
 	}
 	
 	
-	
-	
-	
-	
 	public void printBookList() { //도서관이 소유 모든 책(빌린 책 포함)
 		for(Book bo : bookList) {
 			System.out.println(bo.getId() +"  "+ bo.getName() +"  "+ bo.getAuthor());
 		}
+	}
+	
+	public void writeFile() {
+		
+		FileWriter fw;
+		
+		try {
+			fw = new FileWriter("C:\\Users\\dpfls\\Desktop\\kopo_java\\Midterm_java\\src\\iodata\\booklist.txt", true); // true =>파일이 있을경우 이어쓰기
+			
+			for(int i =0; i < bookList.size(); i++) {
+				fw.write(bookList.get(i).getId() + "," + bookList.get(i).getName() + ","+ bookList.get(i).getAuthor() + "," + bookList.get(i).getGenre() +"\r\n");	
+			}
+			
+			fw.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("iodata/userlist.txt 에 저장완료");
 	}
 	
 }

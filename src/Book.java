@@ -4,6 +4,8 @@ public class Book {
 	private int bId;
 	private String bName;
 	private String author;
+	private String genre;
+
 	private boolean rental;
 	
 	public boolean equals(int bId) {
@@ -52,6 +54,14 @@ public class Book {
 		this.author = author;
 	}
 
+	public String getGenre() {
+		return genre;
+	}
+	
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	
 	public boolean isRental() {
 		return rental;
 	}

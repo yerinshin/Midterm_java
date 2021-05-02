@@ -22,7 +22,7 @@ public class LibraryView {
 		//login
 		
 		boolean bool = true;
-		BookList booklist = new BookList();
+		BookUtil booklist = new BookUtil();
 		
 		while(bool) {
 			System.out.println("메뉴를 선택하세요.");

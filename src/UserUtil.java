@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 
 public class UserUtil implements UserInterface{
+	
 	Scanner sc = new Scanner(System.in);
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	ArrayList<User> userList = new ArrayList<User>();
@@ -22,6 +23,7 @@ public class UserUtil implements UserInterface{
 	
 		try {
 			User user = new User();
+			
 			System.out.print("아이디 :");
 			String id = sc.nextLine();
 	

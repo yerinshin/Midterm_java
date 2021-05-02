@@ -17,15 +17,17 @@ public class Book {
 	
 	public Book() {
 		bId = 0;
-		bName = " ";
-		author =" ";
+		bName = "";
+		author ="";
+		genre = "";
 		rental = false;
 	}
 	
-	public Book(int bId, String bName, String author) {
+	public Book(int bId, String bName, String author, String genre) {
 		this.bId = bId;
 		this.bName = bName;
 		this.author = author;
+		this.genre = genre;
 		rental = false;
 		
 	}

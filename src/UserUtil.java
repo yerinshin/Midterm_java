@@ -12,8 +12,16 @@ public class UserUtil implements UserInterface{
 	Scanner sc = new Scanner(System.in);
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	ArrayList<User> userList = new ArrayList<User>();
+	
 	private String loginedId; //현재 로그인 된 아이디
 	private String loginedPwd; //현재 로그인 된 pwd
+	
+	public String getLoginedId() {
+		return loginedId;
+	}
+	public void setLoginedId(String loginedId) {
+		this.loginedId = loginedId;
+	}
 	
 	@Override
 	public void SignUp() {
@@ -27,7 +35,7 @@ public class UserUtil implements UserInterface{
 			System.out.print("아이디 :");
 			String id = sc.nextLine();
 	
-			fr = new FileReader("C:\\Users\\dpfls\\Desktop\\kopo_java\\Midterm_java\\src\\iodata\\userlist.txt");
+			fr = new FileReader("iodata\\userlist.txt");
 			br = new BufferedReader(fr);
 					
 			String line = "";
@@ -76,7 +84,6 @@ public class UserUtil implements UserInterface{
 	public void SignIn() {
 		FileReader fr;
 		
-		
 		try {
 			
 		System.out.println("==== 로그인 ====");	
@@ -85,7 +92,7 @@ public class UserUtil implements UserInterface{
 		System.out.println("비밀번호 : ");
 		String password = sc.nextLine();
 		
-		fr = new FileReader("C:\\Users\\dpfls\\Desktop\\kopo_java\\Midterm_java\\src\\iodata\\userlist.txt");
+		fr = new FileReader("iodata\\userlist.txt");
 		br = new BufferedReader(fr);
 		String line = "";
 		boolean registered = false;
@@ -97,7 +104,7 @@ public class UserUtil implements UserInterface{
 				loginedPwd = password;
 				registered = true;
 				
-				System.out.println("[ "+ loginedId +" ] 님 로그인 되었습니다.");
+//				System.out.println("[ "+ loginedId +" ] 님 로그인 되었습니다.");
 				
 				break;
 			
@@ -106,6 +113,7 @@ public class UserUtil implements UserInterface{
 		
 		if(!registered) {
 			System.out.println("등록된 아이디가 아닙니다.");
+			loginedId = "";
 		}
 		
 		}catch(Exception e){
@@ -128,7 +136,8 @@ public class UserUtil implements UserInterface{
 		FileWriter fw;
 		
 		try {
-			fw = new FileWriter("C:\\Users\\dpfls\\Desktop\\kopo_java\\Midterm_java\\src\\iodata\\userlist.txt", true); // true =>파일이 있을경우 이어쓰기
+			
+			fw = new FileWriter("iodata\\userlist.txt", true);//true =>파일이 있을경우 이어쓰기
 			
 			for(int i =0; i < userList.size(); i++) {
 				fw.write(userList.get(i).getId() + "," + userList.get(i).getPwd() + ","+ userList.get(i).getName() + "," + userList.get(i).getPhone() +"\r\n");	

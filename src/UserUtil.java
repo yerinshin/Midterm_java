@@ -24,7 +24,7 @@ public class UserUtil implements UserInterface{
 	}
 	
 	@Override
-	public void SignUp() {
+	public void signUp() {
 		System.out.println("========= 회원 가입 =========");
 		
 		FileReader fr;
@@ -56,11 +56,11 @@ public class UserUtil implements UserInterface{
 			}
 			
 			if(!registered) {
-				System.out.println("패스워드 : ");
+				System.out.print("패스워드 : ");
 				String password = sc.nextLine();
-				System.out.println("이름 : ");
+				System.out.print("이름 : ");
 				String name = sc.nextLine();
-				System.out.println("휴대폰 연락처 : ");
+				System.out.print("휴대폰 연락처 : ");
 				String phone = sc.nextLine();
 				
 				user.setId(id);
@@ -81,7 +81,7 @@ public class UserUtil implements UserInterface{
 		
 	}
 	@Override
-	public void SignIn() {
+	public void signIn() {
 		FileReader fr;
 		
 		try {
@@ -104,8 +104,6 @@ public class UserUtil implements UserInterface{
 				loginedPwd = password;
 				registered = true;
 				
-//				System.out.println("[ "+ loginedId +" ] 님 로그인 되었습니다.");
-				
 				break;
 			
 			}
@@ -123,7 +121,7 @@ public class UserUtil implements UserInterface{
 	
 	
 	@Override
-	public void SignOut() {
+	public void signOut() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -149,7 +147,7 @@ public class UserUtil implements UserInterface{
 			e.printStackTrace();
 		}
 		
-		System.out.println("iodata/userlist.txt 에 저장완료");
+//		System.out.println("iodata/userlist.txt 에 저장완료");
 	}
 	
 

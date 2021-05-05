@@ -8,12 +8,6 @@ public class Book {
 
 	private boolean rental;
 	
-	public boolean equals(int bId) {
-		if(this.bId == bId)
-			return true;
-		else
-			return false;
-	}
 	
 	public Book() {
 		bId = 0;
